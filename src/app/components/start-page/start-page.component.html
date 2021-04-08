@@ -1,0 +1,17 @@
+<h1>Wer spielt mit?</h1>
+
+<form [formGroup]="startForm">
+  <div formArrayName="namesOfPlayers">
+    <div *ngFor="let item of nameList.controls; let nameIndex=index" [formGroupName]="nameIndex">
+      <label>
+        Name: <input formControlName="name" />
+      </label>
+      <button type="button" (click)="deletePlayer(nameIndex)">Name löschen</button>
+    </div>
+    <button type="button" (click)="addPlayer()">Name hinzufügen</button>
+  </div>
+  <button type="button" (click)="startGame()">START</button>
+</form>
+
+<a href="game">open game</a>
+

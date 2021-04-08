@@ -1,0 +1,21 @@
+<h2>wer spielt mit?</h2>
+
+
+<div *ngFor="let p of allPlayers">
+  <h4>{{p.name}} hat {{p.points}} Punkte</h4>
+</div>
+
+
+<div *ngIf="tasks">
+  <div *ngIf="!showResults">
+
+    <app-task-form [task]="tasks[currentTaskIndex]" (onTaskCompleted)="updateChoice()"></app-task-form>
+
+    <button (click)="nextTask()">
+      {{currentTaskIndex === tasks.length -1 ? 'View results' : 'Next'}}
+    </button>
+    <button (click)="previousTask()">
+      Previous
+    </button>
+  </div>
+</div>
